@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=1024" />
+   <meta name="apple-mobile-web-app-capable" content="yes" />
+   <title>Introduction to Radyant</title>
+   <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+   <meta name="author" content="Vincent Nijs" />
+   <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+   <link href="libraries/frameworks/impressjs/css/impress-demo.css" rel="stylesheet" />
+   <link rel="shortcut icon" href="libraries/frameworks/impressjs/favicon.png" />
+   <link rel="apple-touch-icon" href="libraries/frameworks/impressjs/apple-touch-icon.png" />
+   <link href="libraries/highlighters/highlight.js/css/tomorrow.css" rel="stylesheet" />   
+</head>
+<body class="impress-not-supported">
+  <div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are   
+      presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> 
+      browser.</p>
+  </div>
+  <div id="impress">
+      <div id="title" class="step " data-x="-700" data-y="-700"  
+   
+     
+   >
+ 
+ <p><strong>Introduction to Radyant</strong><br>
+<em>Marketing analytics using Shiny</em></p>
+
+</div>
+      <div id="me" class="step " data-x="700" data-y="-700"  
+   
+     
+   >
+ 
+ <p>Vincent Nijs<br>
+Assistant Professor of Marketing<br>
+Rady school of Management, UCSD<br>
+<a href="mailto:vnijs@rady.ucsd.edu">vnijs@rady.ucsd.edu</a></p>
+
+</div>
+      <div id="mgt202" class="step " data-x="-1050" data-y="700"  
+   
+     
+   >
+ 
+ <p>At Rady I teach a class titled <em>Research for Marketing Decisions</em> to 2nd year MBA students.</p>
+
+</div>
+      <div id="spss" class="step " data-x="0" data-y="700"  
+   
+     
+   >
+ 
+ <p>For years I used SPSS. SPSS has many tools my students won&#39;t need and defaults that may not apply to applications in marketing.</p>
+
+</div>
+      <div id="deducer" class="step " data-x="1050" data-y="700"  
+   
+     
+   >
+ 
+ <p>I wanted to use R but without the steep learning curve. I spent <strong>many</strong> hours programming a custom analysis menu for R using <a href="http://www.deducer.org/pmwiki/index.php?n=Main.DeducerManual?from=Main.HomePage">Deducer</a>. Deducer relies on <a href="http://rforge.net/JGR/">JGR</a>.</p>
+
+</div>
+      <div id="shiny" class="step " data-x="0" data-y="0"  
+   
+     
+    data-scale="3">
+ 
+ <p>Shiny</p>
+
+</div>
+      <div id="what-is" class="step " data-x="3000" data-y="0"  
+   
+     
+    data-scale="3">
+ 
+ <p>What is <a href="http://www.rstudio.com/shiny/">Shiny</a>?</p>
+
+</div>
+      <div id="credit" class="step " data-x="2300" data-y="-700"  
+   
+     
+   >
+ 
+ <p>An open-source R-package created and maintained by RStudio, Inc. First released in November 2012. <a href="http://joecheng.com/R/SeattleMay2013/assets/fallback/index.html">Shiny intro by Joe Cheng</a>.</p>
+
+</div>
+      <div id="app" class="step " data-x="3700" data-y="-700"  
+   
+     
+   >
+ <h2>A Shiny app</h2>
+ <ul>
+<li><strong>ui.r</strong> defines the user interface</li>
+<li><strong>server.r</strong> specifies the logic behind the user interface</li>
+</ul>
+
+</div>
+      <div id="killer" class="step " data-x="2300" data-y="700"  
+   
+     
+   >
+ <h2>Killer features (for me)</h2>
+ <ul>
+<li>If you know R you can create a UI in Shiny</li>
+<li>Runs in a (modern) browser (i.e., <em>not</em> IE)</li>
+<li><em>Reactivity</em> makes traditional GUIs look clumsy</li>
+</ul>
+
+</div>
+      <div id="edu" class="step " data-x="3700" data-y="700"  
+   
+     
+   >
+ <h2>Applications in education</h2>
+ <ul>
+<li>Create and disseminate knowledge</li>
+<li>Make research results accessible</li>
+<li>Customize the user-experience (e.g., intermediate steps)</li>
+</ul>
+
+</div>
+      <div id="radyant" class="step " data-x="0" data-y="2500"  
+   
+     
+    data-scale="3">
+ 
+ <p>Rady + Shiny = <a href="http://localhost:8100">Radyant</a></p>
+
+</div>
+      <div id="applets" class="step " data-x="1750" data-y="1800"  
+   
+     
+   >
+ <h2>Applets 2.0</h2>
+ <p><a href="http://localhost:8200">Applets without Java</a></p>
+
+<!-- <iframe width="1024" height="900" src="http://localhost:8200"></iframe> -->
+
+</div>
+      <div id="applets.ui.r" class="step " data-x="2100" data-y="1800"  
+   
+     
+    data-scale=".3">
+ <h2>ui.R</h2>
+ <pre><code class="r">shinyUI(
+  pageWithSidebar(
+
+    headerPanel(&#39;Regression applet&#39;),
+
+    sidebarPanel(
+      numericInput(&#39;b0&#39;, &#39;Intercept&#39;, min = -5, max = 5, 
+        value = 0, step = .1),
+      numericInput(&#39;b1&#39;, &#39;Slope&#39;, min = -5, max = 5, 
+        value = 0.1, step = .1),
+      checkboxInput(&#39;showFit&#39;, &#39;Show OLS fit&#39;),
+      helpText(&#39;Adapted from appstat by Yihui Xie&#39;)
+    ),
+
+    mainPanel( plotOutput(&#39;plot&#39;) )
+  )
+)
+</code></pre>
+
+</div>
+      <div id="applets.server.r" class="step " data-x="2380" data-y="1800"  
+   
+     
+    data-scale=".3">
+ <h2>server.R</h2>
+ <pre><code class="r">N = 30
+B0 = runif(1, -5, 5)
+B1 = runif(1, -5, 5)
+x = seq(-3, 3, length = N)
+df = data.frame(x = x, y = B0 + B1 * x + rnorm(N))
+
+shinyServer(function(input, output) {
+
+    output$plot = renderPlot({
+
+        plot(y ~ x, data = df)
+        abline(input$b0, input$b1, col = &quot;red&quot;)
+
+        if (input$showFit) {
+            fit = lm(y ~ x, data = df)
+            abline(fit, col = &quot;green&quot;)
+        }
+
+    }, width = 700, height = 500)
+
+})
+</code></pre>
+
+</div>
+      <div id="modular" class="step " data-x="1750" data-y="2360"  
+   
+     
+   >
+ <h2>Modular</h2>
+ 
+</div>
+      <div id="modular.stata.menu" class="step " data-x="2100" data-y="2360"  
+   
+     
+    data-scale=".3">
+ <h2>Stata menu</h2>
+ <p><img src="assets/img/stata-menu.png" style="width: 600px;"/></p>
+
+</div>
+      <div id="modular.navbar.html" class="step " data-x="2380" data-y="2360"  
+   
+     
+    data-scale=".3">
+ <h2><a href="http://localhost:8100">Radyant</a> navbar</h2>
+ <ul>
+<li><p>navbar.html</p>
+
+<pre><code class="html">&lt;li&gt;&lt;a href=&quot;#&quot; data-value=&quot;hclustering&quot;&gt;Hierarchical&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#&quot; data-value=&quot;kmeansClustering&quot;&gt;K-means&lt;/a&gt;&lt;/li&gt;
+</code></pre></li>
+<li><p>ui.R</p></li>
+</ul>
+
+<pre><code class="r">getTool &lt;- function(inputId) {
+  tagList(
+    tags$head(tags$script(src = &quot;js/navbar.js&quot;))
+    tags$html(includeHTML(&#39;www/navbar.html&#39;))
+  )
+}
+...
+getTool(&#39;tool&#39;)     # assign data-value from navbar to input$tool
+...
+uiOutput(&quot;ui_analysis&quot;)
+</code></pre>
+
+</div>
+      <div id="modular.server.r" class="step " data-x="2730" data-y="2360"  
+   
+     
+    data-scale=".3">
+ <h2>server.R</h2>
+ <pre><code class="r"># Multiple apps on different ports or a dynamic UI
+sourceDirectory(&quot;tools&quot;, recursive = TRUE)
+
+output$ui_analysis &lt;- renderUI({
+    if (input$tool == &quot;dataview&quot;) 
+        return()
+    get(paste(&quot;ui_&quot;, input$tool, sep = &quot;&quot;))()
+})
+</code></pre>
+
+</div>
+      <div id="modular.naming" class="step " data-x="3080" data-y="2360"  
+   
+     
+    data-scale=".3">
+ <h2>Naming conventions</h2>
+ <ul>
+<li>Suppose <em>mytool</em> is the name of the tool</li>
+<li>analysis reactive called <em>mytool</em></li>
+<li>summary.<em>mytool</em> summary of text output</li>
+<li>plot.<em>mytool</em> one or more plots</li>
+<li>ui_<em>mytool</em> describes the UI for the summary and plot views</li>
+</ul>
+
+</div>
+      <div id="modular.mytool" class="step " data-x="3360" data-y="2360"  
+   
+     
+    data-scale=".3">
+ <h2>mytool example</h2>
+ <ul>
+<li>Add the line below to www/navbar.html</li>
+</ul>
+
+<pre><code class="html">&lt;li&gt;&lt;a href=&quot;#&quot; data-value=&quot;mytool&quot;&gt;My awesome tool&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+
+<ul>
+<li>Then create a file called mytool.R and drop it into the tools-directory</li>
+</ul>
+
+</div>
+      <div id="modular.mytool.r.1" class="step " data-x="3640" data-y="2360"  
+   
+     
+    data-scale=".3">
+ <h2>mytool.R UI</h2>
+ <pre><code class="r">ui_mytool &lt;- function() {
+    numericInput(&#39;b0&#39;, &#39;Intercept&#39;, min = -5, max = 5, 
+        value = 0, step = .1),
+    numericInput(&#39;b1&#39;, &#39;Slope&#39;, min = -5, max = 5, 
+        value = 0.1, step = .1),
+    checkboxInput(&#39;showFit&#39;, &#39;Show OLS fit&#39;),
+    helpText(&#39;Adapted from appstat by Yihui Xie&#39;)
+}
+</code></pre>
+
+</div>
+      <div id="modular.mytool.r.2" class="step " data-x="3920" data-y="2360"  
+   
+     
+    data-scale=".3">
+ <h2>Analysis, summary, and plot functions</h2>
+ <pre><code class="r">mytool &lt;- reactive({
+    lm(y ~ x, data = df)
+})
+
+summary.mytool &lt;- function(result) summary(result)
+
+plot.mytool &lt;- function(result) {
+    plot(y ~ x, data = df)
+    abline(input$b0, input$b1, col = &quot;red&quot;)
+    if (input$showFit) 
+        abline(result, col = &quot;green&quot;)
+}
+</code></pre>
+
+</div>
+      <div id="modular.mytool.in.radyant" class="step " data-x="4200" data-y="2360"  
+   
+     
+    data-scale=".3">
+ <h2>Lets take a <a href="http://localhost:8100">look</a></h2>
+ 
+</div>
+      <div id="Todo" class="step " data-x="1750" data-y="2850"  
+   
+     
+   >
+ <h2>Todo</h2>
+ 
+</div>
+      <div id="Todo.summarize" class="step " data-x="2100" data-y="2850"  
+   
+     
+    data-scale=".3">
+ <h2>Summarize data</h2>
+ <ul>
+<li><a href="http://plyr.had.co.nz/">plyr</a></li>
+<li><a href="http://had.co.nz/reshape/">reshape</a></li>
+</ul>
+
+<h2>Visualize data</h2>
+
+<ul>
+<li><a href="http://d3js.org/">d3.js</a></li>
+<li><a href="http://ramnathv.github.io/rCharts/">rCharts</a></li>
+<li><a href="https://code.google.com/p/google-motion-charts-with-r/">googleVis</a></li>
+</ul>
+
+</div>
+      <div id="Todo.reproduce" class="step " data-x="2450" data-y="2850"  
+   
+     
+    data-scale=".3">
+ <h2>Reproducible research</h2>
+ <ul>
+<li><a href="http://ramnathv.github.io/rNotebook/">Knitr notebook</a></li>
+<li>Save-and-reload <strong>input</strong></li>
+</ul>
+
+</div>
+      <div id="me.end" class="step " data-x="0" data-y="4500"  
+   
+     
+    data-scale="2">
+ 
+ <p>Vincent Nijs<br>
+Assistant Professor of Marketing<br>
+Rady school of Management, UCSD<br>
+<a href="mailto:vnijs@rady.ucsd.edu">vnijs@rady.ucsd.edu</a></p>
+
+</div>
+      <div id="credits" class="step " data-x="-400" data-y="5000"  
+   
+     
+   >
+ <h2>Credits</h2>
+ <ul>
+<li><a href="http://rady.ucsd.edu">Rady</a></li>
+<li><a href="http://www.slidify.org">Slidify</a></li>
+<li><a href="http://github.com/bartaz/impress.js">impress.js</a></li>
+</ul>
+
+<!-- 
+
+# Check
+
+* Add sound?
+* Slide notes? There is an extension to impress.js that does something like this.
+* Add a background image through css
+* Link to another slidified presentation?
+* Include RMD slides (Rmd) into the Django app as static files?
+* Setup personal git repo
+
+
+# commands for slidify
+require(slidify)
+setwd('/Users/vnijs/Dropbox/intro-presentation')
+slidify('index.Rmd')
+
+
+# launch from R-gui
+require(shiny)
+runApp('../radyant/inst/marketing/', launch.browser=FALSE)
+
+
+# launch from terminal
+require(shiny)
+setwd('/Users/vnijs/Dropbox/radyant/inst/')
+runApp('applet-ols', port=8200L, launch.browser=FALSE)
+
+require(shiny)
+setwd('/Users/vnijs/Dropbox/radyant/inst/')
+runApp('finance', port=8300L, launch.browser=FALSE)
+
+-->
+
+</div>
+ 
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+  </div>
+
+  <div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+  </div>
+  
+  <div style="position: fixed; bottom: 10px; left: 10px; pointer-events: auto;">
+      <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  </div>
+  </body>
+ <script>
+  if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+  }
+ </script>
+ <script src="libraries/frameworks/impressjs/js/impress.js"></script>
+ <script>impress().init();</script>
+ <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+ <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+     tex2jax: {
+       inlineMath: [['$','$'], ['\\(','\\)']],
+       processEscapes: true
+     }
+   });
+ </script>
+ <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+ </script> -->
+ <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+ <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+ <script>hljs.initHighlightingOnLoad();</script>
+ <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ </html>
