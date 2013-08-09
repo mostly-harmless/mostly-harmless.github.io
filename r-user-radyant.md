@@ -339,8 +339,8 @@ vnijs@rady.ucsd.edu
 
 # commands for slidify
 require(slidify)
-setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io/r-user-radyant')
-slidify('index.Rmd')
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io')
+slidify('r-user-radyant.Rmd')
 
 
 # launch from R-gui
