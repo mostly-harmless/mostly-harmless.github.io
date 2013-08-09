@@ -24,6 +24,7 @@ _Marketing analytics using Shiny_
 
 * [Rady](http://rady.ucsd.edu)
 * [Radyant code](http://github.com/mostly-harmless/radyant)
+* [Presentation](http://github.com/mostly-harmless.github.io)
 * [Slidify](http://www.slidify.org)
 * [impress.js](http://github.com/bartaz/impress.js)
 
