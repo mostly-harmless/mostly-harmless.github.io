@@ -9,13 +9,10 @@ highlighter : highlight.js  # {highlight.js, prettify, highlight}
 mode  			: selfcontained
 
 
-```{r, eval=TRUE, echo=FALSE}
-# Block 1
-x <- 0; x.incr <- 700
-y <- 0; y.incr <- 700
-```
 
---- #title x:`r x-x.incr` y:`r y-y.incr`
+
+
+--- #title x:-700 y:-700
 
 __Introduction to Radyant__<br>
 _Marketing analytics using Shiny_
@@ -27,53 +24,50 @@ _Marketing analytics using Shiny_
 * [Slidify](http://www.slidify.org)
 * [impress.js](http://github.com/bartaz/impress.js)
 
---- #me x:`r x+x.incr` y:`r y-y.incr`
+--- #me x:700 y:-700
 
 Vincent Nijs<br>
 Assistant Professor of Marketing<br>
 Rady school of Management, UCSD<br>
 vnijs@rady.ucsd.edu
 
---- #mgt202 x:`r x-1.5*x.incr` y:`r y+y.incr`
+--- #mgt202 x:-1050 y:700
 
 At Rady I teach a class titled _Research for Marketing Decisions_ to 2nd year MBA students.
 
---- #spss x:`r x` y:`r y+y.incr`
+--- #spss x:0 y:700
 
 For years I used SPSS. SPSS has many tools my students won't need and defaults that may not apply to applications in marketing.
 
---- #deducer x:`r x+1.5*x.incr` y:`r y+y.incr`
+--- #deducer x:1050 y:700
 
 I wanted to use R but without the steep learning curve. I spent __many__ hours programming a custom analysis menu for R using [Deducer](http://www.deducer.org/pmwiki/index.php?n=Main.DeducerManual?from=Main.HomePage). Deducer relies on [JGR](http://rforge.net/JGR/).
 
---- #shiny x:`r x` y:`r y` scale:3
+--- #shiny x:0 y:0 scale:3
 
 Shiny
 
 
 
-```{r, eval=TRUE, echo=FALSE}
-# Block 2
-x <- 3000
-y <- 0
-```
 
---- #what-is x:`r x` y:`r y` scale:3
+
+
+--- #what-is x:3000 y:0 scale:3
 
 What is [Shiny](http://www.rstudio.com/shiny/)?
 
---- #credit x:`r x-x.incr` y:`r y-y.incr`
+--- #credit x:2300 y:-700
 
 An open-source R-package created and maintained by RStudio, Inc. First released in November 2012. [Shiny intro by Joe Cheng](http://joecheng.com/R/SeattleMay2013/assets/fallback/index.html).
 
---- #app x:`r x+x.incr` y:`r y-y.incr`
+--- #app x:3700 y:-700
 
 ## A Shiny app 
 
 * __ui.r__ defines the user interface
 * __server.r__ specifies the logic behind the user interface
 
---- #killer x:`r x-x.incr` y:`r y+y.incr`
+--- #killer x:2300 y:700
 
 ## Killer features (for me)
 
@@ -81,7 +75,7 @@ An open-source R-package created and maintained by RStudio, Inc. First released 
 * Runs in a (modern) browser (i.e., _not_ IE)
 * _Reactivity_ makes traditional GUIs look clumsy
 
---- #edu x:`r x+x.incr` y:`r y+y.incr`
+--- #edu x:3700 y:700
 
 ## Applications in education
 
@@ -90,18 +84,15 @@ An open-source R-package created and maintained by RStudio, Inc. First released 
 * Customize the user-experience (e.g., intermediate steps)
 
 
-```{r, eval=TRUE, echo=FALSE}
-# Block 3
-x <- 0
-y <- 2500
-```
 
---- #radyant x:`r x` y:`r y` scale:3
+
+
+--- #radyant x:0 y:2500 scale:3
 
 Rady + Shiny = [Radyant](http://localhost:8100)
 
 
---- #applets x:`r x+2.5*x.incr` y:`r y-y.incr`
+--- #applets x:1750 y:1800
 
 ## Applets 2.0
 
@@ -109,11 +100,12 @@ Rady + Shiny = [Radyant](http://localhost:8100)
 <!-- <iframe width="1024" height="900" src="http://localhost:8200"></iframe> -->
 
 
---- #applets.ui.r x:`r x+3*x.incr` y:`r y-y.incr` scale:.3
+--- #applets.ui.r x:2100 y:1800 scale:.3
 
 ## ui.R
 
-```{r ui.r, eval = F, echo = T}
+
+```r
 shinyUI(
   pageWithSidebar(
   
@@ -133,49 +125,53 @@ shinyUI(
 )
 ```
 
---- #applets.server.r x:`r x+3.4*x.incr` y:`r y-y.incr` scale:.3
+
+--- #applets.server.r x:2380 y:1800 scale:.3
 
 ## server.R
 
-```{r server.r, eval = F, echo = T}
-N = 30; B0 = runif(1, -5, 5); B1 = runif(1, -5, 5); x = seq(-3, 3, length = N)
-df = data.frame(x = x, y = B0 + B1*x + rnorm(N))
+
+```r
+N = 30
+B0 = runif(1, -5, 5)
+B1 = runif(1, -5, 5)
+x = seq(-3, 3, length = N)
+df = data.frame(x = x, y = B0 + B1 * x + rnorm(N))
 
 shinyServer(function(input, output) {
-  
-  output$plot = renderPlot({
-
-    plot(y ~ x, data = df)
-    abline(input$b0, input$b1, col = 'red')
-
-    if (input$showFit) {
-      fit = lm(y ~ x, data = df)
-      abline(fit, col = 'green')
-    }
-
-  }, width = 700, height = 500)
-  
+    
+    output$plot = renderPlot({
+        
+        plot(y ~ x, data = df)
+        abline(input$b0, input$b1, col = "red")
+        
+        if (input$showFit) {
+            fit = lm(y ~ x, data = df)
+            abline(fit, col = "green")
+        }
+        
+    }, width = 700, height = 500)
+    
 })
 ```
 
-```{r, eval=TRUE, echo=FALSE}
-# Modular height
-mod.height <- y - .2*y.incr
-```
 
 
---- #modular x:`r x+2.5*x.incr` y:`r mod.height`
+
+
+
+--- #modular x:1750 y:2360
 
 ## Modular
 
---- #modular.stata.menu x:`r x+3*x.incr` y:`r mod.height` scale:.3
+--- #modular.stata.menu x:2100 y:2360 scale:.3
 
 ## Stata menu
 
 <img src="assets/img/stata-menu.png" style="width: 600px;"/>
 
 
---- #modular.navbar.html x:`r x+3.4*x.incr` y:`r mod.height` scale:.3
+--- #modular.navbar.html x:2380 y:2360 scale:.3
 
 ## [Radyant](http://localhost:8100) navbar
 
@@ -187,7 +183,8 @@ mod.height <- y - .2*y.incr
 
 * ui.R
 
-```{r navbar.ui.r, eval = F, echo = T}
+
+```r
 getTool <- function(inputId) {
   tagList(
     tags$head(tags$script(src = "js/navbar.js"))
@@ -200,22 +197,26 @@ getTool('tool')     # assign data-value from navbar to input$tool
 uiOutput("ui_analysis")
 ```
 
---- #modular.server.r x:`r x+3.9*x.incr` y:`r mod.height` scale:.3
+
+--- #modular.server.r x:2730 y:2360 scale:.3
 
 ## server.R
 
-```{r modular.locate, eval = F, echo = T}
+
+```r
 # Multiple apps on different ports or a dynamic UI
-sourceDirectory('tools', recursive = TRUE)
+sourceDirectory("tools", recursive = TRUE)
 
 output$ui_analysis <- renderUI({
- 	if(input$tool == "dataview") return()
-  get(paste('ui_',input$tool, sep=""))()
-}) 
+    if (input$tool == "dataview") 
+        return()
+    get(paste("ui_", input$tool, sep = ""))()
+})
 ```
 
 
---- #modular.naming x:`r x+4.4*x.incr` y:`r mod.height` scale:.3
+
+--- #modular.naming x:3080 y:2360 scale:.3
 
 ## Naming conventions
 
@@ -226,7 +227,7 @@ output$ui_analysis <- renderUI({
 * ui__mytool_ describes the UI for the summary and plot views
 
 
---- #modular.mytool x:`r x+4.8*x.incr` y:`r mod.height` scale:.3
+--- #modular.mytool x:3360 y:2360 scale:.3
 
 ## mytool example
 
@@ -240,11 +241,12 @@ output$ui_analysis <- renderUI({
 
 * Then create a file called mytool.R and drop it into the tools-directory
 
---- #modular.mytool.r.1 x:`r x+5.2*x.incr` y:`r mod.height` scale:.3
+--- #modular.mytool.r.1 x:3640 y:2360 scale:.3
 
 ## mytool.R UI
 
-```{r mytool.r.ui_tool1, eval = F, echo = T}
+
+```r
 ui_mytool <- function() {
 	numericInput('b0', 'Intercept', min = -5, max = 5, 
   		value = 0, step = .1),
@@ -255,32 +257,38 @@ ui_mytool <- function() {
 }
 ```
 
---- #modular.mytool.r.2 x:`r x+5.6*x.incr` y:`r mod.height` scale:.3
+
+--- #modular.mytool.r.2 x:3920 y:2360 scale:.3
 
 ## Analysis, summary, and plot functions
 
-```{r mytool.r.ui_tool2, eval = F, echo = T}
-mytool <- reactive({ lm(y ~ x, data = df) })
+
+```r
+mytool <- reactive({
+    lm(y ~ x, data = df)
+})
 
 summary.mytool <- function(result) summary(result)
 
 plot.mytool <- function(result) {
-  plot(y ~ x, data = df)
-  abline(input$b0, input$b1, col = 'red')
-  if (input$showFit) abline(result, col = 'green')
+    plot(y ~ x, data = df)
+    abline(input$b0, input$b1, col = "red")
+    if (input$showFit) 
+        abline(result, col = "green")
 }
 ```
---- #modular.mytool.in.radyant x:`r x+6*x.incr` y:`r mod.height` scale:.3
+
+--- #modular.mytool.in.radyant x:4200 y:2360 scale:.3
 
 ## Lets take a [look](http://localhost:8100)
 
 
---- #Todo x:`r x+2.5*x.incr` y:`r y+.5*y.incr`
+--- #Todo x:1750 y:2850
 
 ## Todo
 
 
---- #Todo.summarize x:`r x+3*x.incr` y:`r y+.5*y.incr` scale:.3
+--- #Todo.summarize x:2100 y:2850 scale:.3
 
 ## Summarize data
 
@@ -293,7 +301,7 @@ plot.mytool <- function(result) {
 * [rCharts](http://ramnathv.github.io/rCharts/)
 * [googleVis](https://code.google.com/p/google-motion-charts-with-r/)
 
---- #Todo.reproduce x:`r x+3.5*x.incr` y:`r y+.5*y.incr` scale:.3
+--- #Todo.reproduce x:2450 y:2850 scale:.3
 
 ## Reproducible research 
 
@@ -301,14 +309,14 @@ plot.mytool <- function(result) {
 * Save-and-reload __input__
 
 
---- #me.end x:`r x` y:`r y+2000` scale:2
+--- #me.end x:0 y:4500 scale:2
 
 Vincent Nijs<br>
 Assistant Professor of Marketing<br>
 Rady school of Management, UCSD<br>
 vnijs@rady.ucsd.edu
 
---- #credits x:`r x - 400` y:`r y+2500`
+--- #credits x:-400 y:5000
 
 ## Credits
 
