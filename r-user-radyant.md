@@ -90,14 +90,14 @@ An open-source R-package created and maintained by RStudio, Inc. First released 
 
 --- #radyant x:0 y:2500 scale:3
 
-Rady + Shiny = [Radyant](http://localhost:8100)
+Rady + Shiny = [Radyant](http://vnijs.rady.ucsd.edu:3838/marketing)
 
 
 --- #applets x:1750 y:1800
 
 ## Applets 2.0
 
-[Applets without Java](http://localhost:8200)
+[Applets without Java](http://vnijs.rady.ucsd.edu:3838/applet-ols)
 <!-- <iframe width="1024" height="900" src="http://localhost:8200"></iframe> -->
 
 
@@ -174,7 +174,7 @@ shinyServer(function(input, output) {
 
 --- #modular.navbar.html x:2380 y:2360 scale:.3
 
-## [Radyant](http://localhost:8100) navbar
+## [Radyant](http://vnijs.rady.ucsd.edu:3838/marketing) navbar
 
 * navbar.html
 ``` html
@@ -281,7 +281,8 @@ plot.mytool <- function(result) {
 
 --- #modular.mytool.in.radyant x:4200 y:2360 scale:.3
 
-## Lets take a [look](http://localhost:8100)
+## Lets take a [look](http://vnijs.rady.ucsd.edu:3838/marketing)
+#### Go to Regression > My awesome tool
 
 
 --- #Todo x:1750 y:2850

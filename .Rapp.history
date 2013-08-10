@@ -1,0 +1,332 @@
+dat <- mtcars
+selcom <- "mpg > 20"
+seldat <- try(parse(text = paste("subset(dat,",selcom,")")[[1]]), silent = FALSE)
+seldat
+seldat[[1]]
+get(paste("mpg > 20"
+SDFG{PLK%Y\
+get("mtcars[mpg > 20,]")
+?recode
+??recode
+library(car)
+?recode
+q()
+library(shiny)
+?tags
+library('devtools')#
+  install_github('shiny', 'rstudio')
+library(shiny)
+?renderUI
+dat <- getdata()[,input$hc_vars]#
+	if(input$hc_dist == "sq.euclidian") {#
+		dist.data <- dist(dat, method = "euclidean")^2#
+	} else {#
+		dist.data <- dist(dat, method = input$hc_dist)#
+	}#
+	hclust(d = dist.data, method= input$hc_meth)
+dat <- mtcars[,'cyl']#
+	dist.data <- dist(dat, method = "euclidean")^2#
+	hclust(d = dist.data, method= input$hc_meth)
+dat <- mtcars[,'cyl']#
+	dist.data <- dist(dat, method = "euclidean")^2#
+	hclust(d = dist.data, method= euclidean)
+dat <- mtcars[,'cyl']#
+	dist.data <- dist(dat, method = "euclidean")^2#
+	hclust(d = dist.data, method=ward)
+dat <- mtcars[,'cyl']#
+	dist.data <- dist(dat, method = "euclidean")^2#
+	hclust(d = dist.data, method='ward')
+dat <- mtcars[,'cyl']#
+	dist.data <- dist(dat, method = "euclidean")^2#
+	h <- hclust(d = dist.data, method='ward')
+h
+plot(h)
+class(h)
+dat <- mtcars[,'cyl']#
+	dist.data <- dist(dat, method = "euclidean")^2#
+	plot(hclust(d = dist.data, method='ward'))
+q()
+source('/Users/vnijs/Documents/OfficeProjects/teaching/MGT202/RTutorials/radyant/inst/marketing/ui.R')
+library(plotrix)#
+flips=1000#
+p.head=0.5#
+interval=0.001#
+res <- rbinom(n = flips, size = 1, prob = p.head)#
+n.trials <- seq(1, flips)#
+#
+cum.s <- cumsum(res)#
+cum.p <- cum.s/n.trials#
+show.coin='yes'#
+#
+layout(matrix(c(rep(1, 6), 0, 2, 0), 3, 3, byrow = TRUE))#
+for (i in 1:flips) {#
+  dev.hold()#
+  plot(seq(0, flips), seq(0, 1, 1/flips), type = "n", #
+       ylab = "Estimated P(Head)", xlab = "Trial")#
+  abline(h = p.head, lty = 2, col = "gray")#
+#
+  lines(n.trials[1:i], cum.p[1:i], type = "l", col = 2)#
+  plot(seq(0, 1), seq(0, 1), type = "n", xaxt = "n", #
+       yaxt = "n", xlab = "", ylab = "", bty = "n")#
+  draw.circle(x = 0.5, y = 0.5, radius = 0.35, col = rgb(blue = 0.7, #
+                                                         red = 0.7, green = 0.7, alpha = 0.8))#
+  text(0.5, 0.5, ifelse(res[i] == 0, "TAIL", "HEAD"), #
+       cex = 2.1)#
+  dev.flush()#
+  Sys.sleep(interval)#
+}
+install.packages("Zelig")
+install.packages("zoo")
+install.packages("sandwich")
+install.packages("MCMCpack")
+install.packages("coda")
+install.packages("lattice")
+install.packages("mvtnorm")
+install.packages("VGAM")
+install.packages("sna")
+install.packages("systemfit")
+install.packages("nnet")
+install.packages("gee")
+install.packages("mgcv")
+library(Zelig)
+data(newpainters)
+head(newpainters)
+z.out <- zelig(cbind(Composition, Drawing, Colour, Expression) ~
+NULL, data = newpainters, model = "factor.ord", factors = 1,
+L0 = 0.5, burin = 5000, mcmc = 30000, thin = 5, tune = 1.2,
+verbose = TRUE)
+z.out <- zelig(cbind(Composition,Drawing,Colour,Expression)~NULL,
+data=newpainters, model="factor.ord",
+factors=1, L0=0.5,
+burin=5000,mcmc=30000, thin=5, tune=1.2,verbose=TRUE)
+z.out <- zelig(cbind(Composition,Drawing,Colour,Expression)~NULL, data=newpainters, model="factor.ord", factors=2, L0=0.5, burin=5000,mcmc=30000, thin=5, tune=1.2,verbose=TRUE)
+z.out <- zelig(cbind(Composition,Drawing,Colour,Expression)~NULL, data=newpainters, model="factor", factors=2, L0=0.5, burin=5000,mcmc=30000, thin=5, tune=1.2,verbose=TRUE)
+data(PErisk)
+z.out<-zelig(cbind(courts, barb2, prsexp2, prscorr2, gdpw2) ~ NULL,
+data = PErisk, model = "factor.mix", factors = 1,
+burnin = 5000, mcmc = 100000, thin = 50, verbose = TRUE,
+L0 = 0.25, tune=1.2)
+geweke.diag(z.out$coefficients)
+data(PErisk)
+z.out<-zelig(cbind(courts, barb2, prsexp2, prscorr2, gdpw2) ~ NULL,
+data = PErisk, model = "factor.mix", factors = 1,
+burnin = 5000, mcmc = 100000, thin = 50, verbose = TRUE,
+L0 = 0.25, tune=1.2)
+geweke.diag(z.out$coefficients)
+heidel.diag(z.out$coefficients)
+summary(z.out)
+data(turnout)
+z.out <- zelig(vote ~ race + age, model = "logit", data = turnout)
+x.out <- setx(z.out, race = "white")
+s.out <- sim(z.out, x = x.out)
+summary(s.out)
+?model
+?zelig
+?help.zelig('models')
+help.zelig('models')
+c <- 3
+beta <- range(-1,-5,-1)
+beta
+beta <- range(-1,-5,.1)
+beta
+?range
+beta <- range(-1:-5,.1)
+beta
+seq(-1,-5,-.1)
+beta <- seq(-1,-5,-.1)
+p <- c / (1 + 1/beta)
+plot(p)
+plot(p,beta)
+plot(beta,p)
+update.packages(checkBuilt=TRUE)
+rep(2,input$nr_factors)
+rep(2,4)
+?is.null
+a <- rep(2,4)
+a
+as.character(a)
+paste(a)
+paste(a, collapse="")
+paste(a, collapse=" ")
+a <- rep(2,4)
+paste(a, collapse=" ")
+init_levels <- paste(rep(2,3), collapse = " ")
+init_levels
+levs <- read.table(header=F, text=init_levels)
+levs
+levs[1]
+c(levs)
+as.vector(levs)
+class(levs)
+as.numeric(levs)
+as.numeric(levs)[1]
+as.numeric(levs)[2]
+a <- NULL
+a
+print(class(a))
+a
+a <- '2 2 2'
+as.numeric(a)
+rep(NA,3)
+?read.table
+a <- "Level 1, Level 2"
+f_levels <- read.table(header=F, text=a, sep = ",")
+f_levels
+class(f_levels)
+c(f_levels)
+unlist(f_levels)
+c(unlist(f_levels))
+?read.table
+t <- read.table(header=F, text="5.92#
+5.28#
+  NA#
+  NA#
+5.27#
+  NA#
+4.58#
+  NA#
+5.89#
+5.67#
+3.15#
+6.19#
+5.55#
+5.64#
+4.14#
+5.89")
+t
+c(t)
+class(c(t))
+?read.table
+t <- read.table(header=F, text="5.92 5.28   NA   NA 5.27   NA 4.58   NA 5.89 5.67 3.15 6.19 5.55 5.64 4.14 5.89")
+t
+c(t)
+?read.table
+df <- data.frame(letters[1:16])
+df
+t1 <- "5.92 5.28 NA NA 5.27 NA 4.58 NA 5.89 5.67 3.15 6.19 5.55 5.64 4.14 5.89"
+df <- data.frame("V1" = letters[1:16])
+df
+df$y <- read.table(header=F, text=input$y)
+df$y <- read.table(header=F, text=t1)
+df$y <- read.table(header=F, text=t2)
+df <- data.frame("V1" = letters[1:16])
+t1 <- "5.92 5.28 NA NA 5.27 NA 4.58 NA 5.89 5.67 3.15 6.19 5.55 5.64 4.14 5.89"
+t2 <- "5.92
+5.28
+NA
+5.27
+NA
+4.58
+NA
+5.89
+5.67
+3.15
+6.19
+5.55
+5.64
+4.14
+5.89"
+df$y <- read.table(header=F, text=t1)
+df$y <- read.table(header=F, text=t2)
+df
+df$y <- c(read.table(header=F, text=t1))
+df
+df$y <- c(read.table(header=F, text=t2))
+df
+df1 <- data.frame("V1" = letters[1:16])
+df2 <- data.frame("V1" = letters[1:16])
+t1 <- "5.92 5.28 NA NA 5.27 NA 4.58 NA 5.89 5.67 3.15 6.19 5.55 5.64 4.14 5.89"
+t2 <- "5.92
+5.28
+NA
+5.27
+NA
+4.58
+NA
+5.89
+5.67
+3.15
+6.19
+5.55
+5.64
+4.14
+5.89"
+df1$y <- c(read.table(header=F, text=t1))
+df1
+df2$y <- c(read.table(header=F, text=t2))
+df2
+df1 <- data.frame("V1" = letters[1:16])
+df2 <- data.frame("V1" = letters[1:16])
+df1
+df1 <- data.frame("V1" = letters[1:16])
+df2 <- data.frame("V1" = letters[1:16])
+t1 <- "5.92 5.28 NA NA 5.27 NA 4.58 NA 5.89 5.67 3.15 6.19 5.55 5.64 4.14 5.89"
+t2 <- "5.92
+5.28
+NA
+5.27
+NA
+4.58
+NA
+5.89
+5.67
+3.15
+6.19
+5.55
+5.64
+4.14
+5.89"
+df1$y <- read.table(header=F, text=t1)
+df1
+df2$y <- read.table(header=F, text=t2)
+df2
+data <- read.table(header = T, text = "   y   sd  n
+5.92 1.18 25
+5.28 0.91 24
+NA   NA NA
+5.27 1.00 39
+NA   NA NA
+4.58 1.31 31
+NA   NA NA
+5.89 0.98 58
+5.67 0.90 60
+3.15 1.02 59
+6.19 0.77 51
+5.55 1.01 36
+5.64 0.89 31
+4.14 1.08 30
+5.89 1.06 38")
+data
+data$y <- data$y + 1
+data
+print(meta())
+meta()
+require(slidify)#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io/r-user-radyant')#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io')#
+slidify('r-user-radyant/r-user-radyant.Rmd')
+require(slidify)#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io/r-user-radyant')#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io')#
+slidify('r-user-radyant.Rmd')
+require(slidify)#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io/r-user-radyant')#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io')#
+slidify('r-user-radyant.Rmd')
+require(slidify)#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io/r-user-radyant')#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io')#
+slidify('r-user-radyant.Rmd')
+require(slidify)#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io/r-user-radyant')#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io')#
+slidify('r-user-radyant.Rmd')
+require(slidify)#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io/r-user-radyant')#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io')#
+slidify('r-user-radyant.Rmd')
+require(slidify)#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io/r-user-radyant')#
+setwd('/Users/vnijs/Dropbox/mostly-harmless.github.io')#
+slidify('r-user-radyant.Rmd')
+q()

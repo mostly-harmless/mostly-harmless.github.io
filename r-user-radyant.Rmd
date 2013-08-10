@@ -99,14 +99,14 @@ y <- 2500
 
 --- #radyant x:`r x` y:`r y` scale:3
 
-Rady + Shiny = [Radyant](http://localhost:8100)
+Rady + Shiny = [Radyant](http://vnijs.rady.ucsd.edu:3838/marketing)
 
 
 --- #applets x:`r x+2.5*x.incr` y:`r y-y.incr`
 
 ## Applets 2.0
 
-[Applets without Java](http://localhost:8200)
+[Applets without Java](http://vnijs.rady.ucsd.edu:3838/applet-ols)
 <!-- <iframe width="1024" height="900" src="http://localhost:8200"></iframe> -->
 
 
@@ -178,7 +178,7 @@ mod.height <- y - .2*y.incr
 
 --- #modular.navbar.html x:`r x+3.4*x.incr` y:`r mod.height` scale:.3
 
-## [Radyant](http://localhost:8100) navbar
+## [Radyant](http://vnijs.rady.ucsd.edu:3838/marketing) navbar
 
 * navbar.html
 ``` html
@@ -273,7 +273,8 @@ plot.mytool <- function(result) {
 ```
 --- #modular.mytool.in.radyant x:`r x+6*x.incr` y:`r mod.height` scale:.3
 
-## Lets take a [look](http://localhost:8100)
+## Lets take a [look](http://vnijs.rady.ucsd.edu:3838/marketing)
+#### Go to Regression > My awesome tool
 
 
 --- #Todo x:`r x+2.5*x.incr` y:`r y+.5*y.incr`
